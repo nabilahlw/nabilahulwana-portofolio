@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,14 +13,16 @@
    TOKENS
 ═══════════════════════════════ */
 :root {
-  --navy:       #2F4156;
-  --sky:        #C8D9E6;
-  --pale:       #FFE1E6;
-  --azalea:     #F7C9D4;
-  --berry:      #824D5C;
-  --beige:      #F5EFEB;
+  /* ── NEW PALETTE ── */
+  --navy:       #2F4156;   /* Navy — primary dark */
+  --sky:        #C8D9E6;   /* Sky Blue — light accent */
+  --pale:       #FFE1E6;   /* Pale Pink — very light bg */
+  --azalea:     #F7C9D4;   /* Azalea — soft pink accent */
+  --berry:      #824D5C;   /* Winter Berry — deep accent */
+  --beige:      #F5EFEB;   /* Beige — warm neutral bg */
   --white:      #FFFFFF;
   --blue:       #7096D1;
+  /* ── SEMANTIC ALIASES ── */
   --green:       var(--sky);
   --green-dark:  var(--navy);
   --green-light: var(--sky);
@@ -123,10 +125,10 @@ section { min-height: 100vh; padding: 5rem 4%; }
   font-family: 'Great Vibes', cursive;
   font-size: clamp(3rem,5.5vw,4.5rem);
   color: #824D5C;
-  text-shadow: 0 0 16px rgba(255,255,255,1.0),
-               0 0 35px rgba(255,255,255,0.75),
-               0 0 60px rgba(255,255,255,0.35),
-               0 2px 8px rgba(0,0,0,0.15);
+    text-shadow: 0 0 16px rgba(255,255,255,1.0),   /* glow putih dekat */
+               0 0 35px rgba(255,255,255,0.75),   /* glow putih sedang */
+               0 0 60px rgba(255,255,255,0.35),   /* glow putih jauh */
+               0 2px 8px rgba(0,0,0,0.15);         /* bayangan hitam */
   margin-bottom: 2rem;
 }
 
@@ -148,6 +150,7 @@ section { min-height: 100vh; padding: 5rem 4%; }
   max-width: 1200px; margin: 0 auto; width: 100%;
 }
 
+/* Left: photo fills top, socials pinned at bottom */
 .profile-left {
   display: flex;
   flex-direction: column;
@@ -185,6 +188,7 @@ section { min-height: 100vh; padding: 5rem 4%; }
 .profile-socials .fa-github     { color: #333; }
 .profile-socials .fa-linkedin-in{ color: #0A66C2; }
 
+/* Right: one unified white box — about + education seamlessly merged */
 .profile-right {
   display: flex;
   flex-direction: column;
@@ -207,6 +211,7 @@ section { min-height: 100vh; padding: 5rem 4%; }
 }
 .profile-box p { font-size: .88rem; color: var(--muted); line-height: 1.8; margin-bottom: .8rem; }
 
+/* Education: seamlessly below, 2 cols horizontal */
 .edu-box {
   background: var(--white);
   border-radius: 0 0 var(--radius) var(--radius);
@@ -221,6 +226,7 @@ section { min-height: 100vh; padding: 5rem 4%; }
   color: var(--green-dark);
   margin-bottom: 1rem;
 }
+/* 2 edu items side by side */
 .edu-items-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -266,7 +272,7 @@ section { min-height: 100vh; padding: 5rem 4%; }
   border: 3px solid rgba(255,255,255,0.88);
   outline: 1.5px solid rgba(255,255,255,0.5);
   transition: transform var(--trans), box-shadow var(--trans);
-  pointer-events: none;
+  pointer-events: none; /* NOT clickable */
   user-select: none;
 }
 .exp-card:hover {
@@ -275,6 +281,7 @@ section { min-height: 100vh; padding: 5rem 4%; }
   pointer-events: none;
 }
 
+/* Slider */
 .exp-slider { position:relative; height:220px; overflow:hidden; }
 .exp-slides { display:flex; height:100%; transition: transform 0.5s ease; }
 .exp-slides img { min-width:100%; height:100%; object-fit:cover; flex-shrink:0; }
@@ -337,8 +344,9 @@ section { min-height: 100vh; padding: 5rem 4%; }
   font-size:.92rem; 
   font-weight:700; 
   color:var(--green-dark); 
-  margin-bottom:.4rem;
+  margin-bottom:.4rem;  /* ← tambah ini */
 }
+
 .proj-body p { 
   font-size:.82rem; 
   color:var(--muted); 
@@ -387,10 +395,12 @@ section { min-height: 100vh; padding: 5rem 4%; }
 .tech-icon i { font-size:1.8rem; }
 .tech-icon .ti-label { font-size:.62rem; }
 
+/* Modal right: gallery */
 .modal-right { background:var(--cream2); position:relative; overflow:hidden; display:flex; flex-direction:column; }
 .modal-gallery { flex:1; position:relative; overflow:hidden; }
 .modal-slides { display:flex; height:100%; transition:transform .4s ease; }
 .modal-slides img { min-width:100%; height:100%; object-fit:contain; flex-shrink:0; background:var(--cream2); }
+/* PDF slide */
 .pdf-slide { min-width:100%; height:100%; flex-shrink:0; display:flex; flex-direction:column; position:relative; }
 .pdf-slide embed { flex:1; width:100%; border:none; }
 .pdf-download-btn {
@@ -434,6 +444,7 @@ section { min-height: 100vh; padding: 5rem 4%; }
   transform: translateY(-6px);
   box-shadow: 0 18px 48px var(--pink-glow);
 }
+/* preview image area */
 .cert-thumb {
   width: 100%; height: 160px; overflow: hidden;
   background: linear-gradient(135deg, var(--cream), var(--pink-light));
@@ -449,6 +460,7 @@ section { min-height: 100vh; padding: 5rem 4%; }
   display: flex; align-items: center; justify-content: center;
   font-size: 3rem; color: rgba(226,151,150,0.5);
 }
+/* card body */
 .cert-body {
   padding: 1.1rem 1.2rem 1.3rem;
   display: flex; flex-direction: column; flex: 1;
@@ -470,6 +482,7 @@ section { min-height: 100vh; padding: 5rem 4%; }
 }
 .cert-view-btn:hover { background: var(--pink); color: var(--white); }
 
+/* Certificate viewer modal */
 .cert-modal-overlay {
   display: none; position: fixed; inset: 0; z-index: 2100;
   background: rgba(0,0,0,0.78); backdrop-filter: blur(6px);
@@ -586,7 +599,7 @@ footer {
     <a href="#experiences" class="nav-link" data-section="experiences">Experience</a>
     <a href="#projects" class="nav-link" data-section="projects">Projects</a>
     <a href="#certificates" class="nav-link" data-section="certificates">Certificates</a>
-    <a href="Resume - Nabila Hulwana - 2026.pdf" download>Resume</a>
+    <a href="CV - Nabila Hulwana - 2026.pdf" download>Resume</a>
   </div>
 </nav>
 
@@ -594,7 +607,7 @@ footer {
 <section id="home">
   <div class="hero-welcome">Welcome to My Portfolio</div>
   <div class="hero-script">Hi, I am <span>Nabila Hulwana</span></div>
-  <p class="hero-desc">An Information Systems student focused on Data Analytics, Data Engineering, and web development. Passionate about turning data into meaningful insights.</p>
+  <p class="hero-desc">Mahasiswi Sistem Informasi yang berfokus pada Data Analytics, Data Engineering, dan pengembangan web. Passionate about turning data into meaningful insights</p>
 </section>
 
 <!-- ═══ PROFILE ═══ -->
@@ -602,7 +615,7 @@ footer {
   <div class="section-script">About me,</div>
   <div class="profile-layout">
 
-    <!-- Left: Photo & Socials -->
+    <!-- Kiri: Foto & Sosmed -->
     <div class="profile-left">
       <div class="profile-photo-wrap">
         <img src="aku1.png" onerror="this.src='https://placehold.co/300x400/EADEBF/788E77?text=Nabila'" alt="Nabila Hulwana">
@@ -615,14 +628,14 @@ footer {
       </div>
     </div>
 
-    <!-- Right: White box (about + education merged) -->
+    <!-- Kanan: Satu kotak putih (about + education menyatu) -->
     <div class="profile-right">
       <div class="profile-box">
         <h3>Nabila Hulwana Zuhud</h3>
         <div class="job-title">Undergraduate Student of Information Systems</div>
-        <p>6th-semester Information Systems student (employee class) at Universitas Duta Bangsa Surakarta, with a focus on Data Analytics, Data Engineering, and web development.</p>
-        <p>I have over 3 years of experience in education as a Classroom Assistant Teacher at TK Islam Al-Madinah Kartasura, academic tutoring for junior high students, and am currently active as a Coding Tutor at KodeKiddo Surakarta (part-time), teaching coding and logical thinking to elementary and junior high school students through creative projects such as games and storytelling using Scratch, Tinkercad, and Arduino.</p>
-        <p>In the data field, I am proficient in SQL, Python, PySpark, Apache Kafka, PostgreSQL, and ETL tools for building end-to-end data pipelines, as well as creating interactive dashboards with Tableau, Power BI, Excel, and Streamlit. For application and web development, I have experience with Flutter, Firebase, Laravel, PHP, JavaScript, Golang, and GitHub, supported by strong adaptability and teamwork skills.</p>
+        <p>Mahasiswi S1 Sistem Informasi, semester 6, kelas karyawan di Universitas Duta Bangsa Surakarta dengan fokus pada Data Analytics, Data Engineering, dan pengembangan web.</p>
+        <p>Saya berpengalaman lebih dari 3 tahun di bidang pendidikan sebagai Asisten Guru Kelas di TK Islam Al-Madinah Kartasura, tutoring pelajaran SMP dan sekarang aktif sebagai Coding Tutor di KodeKiddo Surakarta (part time) mengajar coding dan logika berpikir untuk siswa SD–SMP melalui proyek kreatif seperti game, storytelling menggunakan Scratch, Tinkercad, dan Arduino.</p>
+        <p>Di bidang data, saya terampil menggunakan SQL, Python, PySpark, Apache Kafka, PostgreSQL, dan tools ETL untuk membangun pipeline data end-to-end, serta membuat dashboard interaktif dengan Tableau, Power BI, Excel, dan Streamlit. Untuk pengembangan aplikasi dan web saya berpengalaman dengan Flutter, Firebase, Laravel, PHP, JavaScript, Golang dan GitHub disertai dengan adaptabilitas dan kerja tim yang baik</p>
       </div>
       <div class="edu-box">
         <h3>Education</h3>
@@ -631,15 +644,15 @@ footer {
             <img src="background/udb.jpeg" onerror="this.src='https://placehold.co/44x44/788E77/FFFFFF?text=UDB'" alt="UDB">
             <div>
               <h4>Universitas Duta Bangsa</h4>
-              <p>Bachelor of Information Systems</p>
-              <p>2023 – Present</p>
+              <p>S1 Sistem Informasi</p>
+              <p>2023 – Sekarang</p>
             </div>
           </div>
           <div class="edu-item">
             <img src="background/pondok.jpg" onerror="this.src='https://placehold.co/44x44/EADEBF/788E77?text=IB'" alt="Imam Bukhari">
             <div>
               <h4>PKKMB Imam Bukhari</h4>
-              <p>Junior High & Senior High School</p>
+              <p>SMP dan SMA</p>
               <p>2016 – 2023</p>
             </div>
           </div>
@@ -667,14 +680,14 @@ footer {
       </div>
       <div class="exp-body">
         <span class="exp-tag">Education</span>
-        <h3>Classroom Assistant Teacher</h3>
+        <h3>Guru Pendamping</h3>
         <div class="exp-company">TK Al-Madinah Kartasura</div>
         <div class="exp-period">Full-time | 2023 – 2025</div>
         <ul class="exp-list">
-          <li>Assisted in designing lesson programs based on curriculum themes and modules.</li>
-          <li>Managed the classroom and organized daily student activity schedules.</li>
-          <li>Compiled and sent daily student progress reports to parents via WhatsApp group.</li>
-          <li>Helped monitor student development and activities in the classroom.</li>
+          <li>Membantu merancang program pembelajaran berdasarkan tema dan modul kurikulum yang berlaku.</li>
+          <li>Mengelola kelas serta mengatur jadwal kegiatan siswa.</li>
+          <li>Menyusun dan mengirim laporan harian siswa kepada orang tua melalui grup WhatsApp.</li>
+          <li>Membantu memantau perkembangan serta aktivitas siswa di kelas.</li>
         </ul>
       </div>
     </div>
@@ -693,12 +706,12 @@ footer {
         <span class="exp-tag">Tech Education</span>
         <h3>Coding Tutor</h3>
         <div class="exp-company">KodeKiddo Surakarta</div>
-        <div class="exp-period">Part-time | Dec 2025 – Present</div>
+        <div class="exp-period">Part-time | Des 2025 – sekarang</div>
         <ul class="exp-list">
-          <li>Taught the fundamentals of programming logic to elementary and junior high school students.</li>
-          <li>Used Scratch, Code.org, and Tinkercad as coding learning tools.</li>
-          <li>Guided students in building storytelling and simple game projects.</li>
-          <li>Helped develop students' creativity, logical thinking, and problem-solving skills.</li>
+          <li>Mengajarkan dasar logika pemrograman kepada siswa SD dan SMP.</li>
+          <li>Menggunakan Scratch, Code.org, dan Tinkercad sebagai media pembelajaran coding.</li>
+          <li>Membimbing siswa membuat proyek storytelling dan game sederhana.</li>
+          <li>Membantu mengembangkan kreativitas, logika berpikir, dan problem solving siswa.</li>
         </ul>
       </div>
     </div>
@@ -715,14 +728,14 @@ footer {
       </div>
       <div class="exp-body">
         <span class="exp-tag">Tutoring</span>
-        <h3>Academic Tutor</h3>
+        <h3>Tentor Akademik</h3>
         <div class="exp-company">Seventh Education Surakarta</div>
         <div class="exp-period">Part-time | Jan 2026 – Mar 2026</div>
         <ul class="exp-list">
-          <li>Taught 7th and 8th grade junior high school students.</li>
-          <li>Instructed subjects including Bahasa Indonesia and English.</li>
-          <li>Helped students prepare for the TKA (national standardized) exam.</li>
-          <li>Guided comprehension of subject matter, grammar, and exam-solving strategies.</li>
+          <li>Mengajar siswa SMP kelas 7 dan 8.</li>
+          <li>Mengajarkan mata pelajaran Bahasa Indonesia dan Bahasa Inggris.</li>
+          <li>Membantu siswa mempersiapkan diri menghadapi ujian TKA.</li>
+          <li>Membimbing pemahaman materi, grammar, dan strategi pengerjaan soal.</li>
         </ul>
       </div>
     </div>
@@ -746,116 +759,112 @@ footer {
     <div class="proj-pages" id="projPages">
 
       <!-- PAGE 1 (projects 1-6) -->
-      <div class="proj-page">
+<div class="proj-page">
 
-        <!-- P1 -->
-        <div class="proj-card" data-cat="data" onclick="openModal('p1')">
-          <div class="proj-thumb-wrap">
-            <img src="myprojects/taxianalysis/taxi1.png" onerror="this.src='https://placehold.co/400x160/EADEBF/788E77?text=FHV+Analysis'" alt="FHV">
-          </div>
-          <div class="proj-body">
-            <span class="proj-cat-badge">Data Analysis</span>
-            <h3>FHV Trip Record Analysis NYC</h3>
-            <p class="proj-tools">Python · SQL · Tableau · Matplotlib</p>
-            <p>Analysis of FHV (Uber & Lyft) trip data in NYC, ML-based trip duration prediction, and an interactive Tableau dashboard.</p>
-          </div>
-        </div>
+  <!-- P1 -->
+  <div class="proj-card" data-cat="data" onclick="openModal('p1')">
+    <div class="proj-thumb-wrap">
+      <img src="projects/fhv/gambar1.png" onerror="this.src='https://placehold.co/400x160/EADEBF/788E77?text=FHV+Analysis'" alt="FHV">
+    </div>
+    <div class="proj-body">
+      <span class="proj-cat-badge">Data Analysis</span>
+      <h3>FHV Trip Record Analysis NYC</h3>
+      <p class="proj-tools">Python · SQL · Tableau · Matplotlib</p>
+      <p>Analisis data perjalanan FHV (Uber & Lyft) NYC, ML prediksi durasi perjalanan, dan dashboard Tableau interaktif.</p>
+    </div>
+  </div>
 
-        <!-- P2 -->
-        <div class="proj-card" data-cat="data" onclick="openModal('p2')">
-          <div class="proj-thumb-wrap">
-            <img src="myprojects/hranalisis/hr1.png" onerror="this.src='https://placehold.co/400x160/E29796/FFFFFF?text=HR+Attrition'" alt="HR">
-          </div>
-          <div class="proj-body">
-            <span class="proj-cat-badge">Data Analysis</span>
-            <h3>HR Attrition Analysis</h3>
-            <p class="proj-tools">Python · SQL · Power BI · Excel · Github</p>
-            <p>Identified key factors behind employee resignations using Python, SQL, and Power BI based on the IBM HR Analytics dataset.</p>
-          </div>
-        </div>
+  <!-- P2 -->
+  <div class="proj-card" data-cat="data" onclick="openModal('p2')">
+    <div class="proj-thumb-wrap">
+      <img src="projects/hr/gambar1.png" onerror="this.src='https://placehold.co/400x160/E29796/FFFFFF?text=HR+Attrition'" alt="HR">
+    </div>
+    <div class="proj-body">
+      <span class="proj-cat-badge">Data Analysis</span>
+      <h3>HR Attrition Analysis</h3>
+      <p class="proj-tools">Python · SQL · Power BI · Excel · Github</p>
+      <p>Identifikasi faktor utama resign karyawan menggunakan Python, SQL, dan Power BI berbasis IBM HR Analytics dataset.</p>
+    </div>
+  </div>
 
-        <!-- P3 -->
-        <div class="proj-card" data-cat="data" onclick="openModal('p3')">
-          <div class="proj-thumb-wrap">
-            <img src="myprojects/airbnb/airbnb1.png" onerror="this.src='https://placehold.co/400x160/788E77/FFFFFF?text=Airbnb+AI'" alt="Airbnb">
-          </div>
-          <div class="proj-body">
-            <span class="proj-cat-badge">Data Analysis · AI</span>
-            <h3>AI-Powered Airbnb LA Analysis</h3>
-            <p class="proj-tools">AI Agent (IBM Granite) · LangChain · Python · Pandas · Seaborn · Jupyter</p>
-            <p>Analyzed 32,442 Airbnb LA listings using IBM Granite 3.3 for AI-based classification from listing descriptions.</p>
-          </div>
-        </div>
+  <!-- P3 -->
+  <div class="proj-card" data-cat="data" onclick="openModal('p3')">
+    <div class="proj-thumb-wrap">
+      <img src="projects/airbnb/gambar1.png" onerror="this.src='https://placehold.co/400x160/788E77/FFFFFF?text=Airbnb+AI'" alt="Airbnb">
+    </div>
+    <div class="proj-body">
+      <span class="proj-cat-badge">Data Analysis · AI</span>
+      <h3>AI-Powered Airbnb LA Analysis</h3>
+      <p class="proj-tools">AI Agent (IBM Granite) · LangChain · Python · Pandas · Seaborn · Jupyter</p>
+      <p>Analisis 32.442 listing Airbnb LA menggunakan IBM Granite 3.3 untuk klasifikasi AI berbasis deskripsi listing.</p>
+    </div>
+  </div>
 
-        <!-- P4 -->
-        <div class="proj-card" data-cat="data" onclick="openModal('p4')">
-          <div class="proj-thumb-wrap">
-            <img src="myprojects/exceldqlab/finance.png" onerror="this.src='https://placehold.co/400x160/C5C099/FFFFFF?text=DQFashion'" alt="DQFashion">
-          </div>
-          <div class="proj-body">
-            <span class="proj-cat-badge">Data Analysis</span>
-            <h3>DQFashion Sales Analysis 2017</h3>
-            <p class="proj-tools">Excel · Power Query · Pivot</p>
-            <p>Sales & revenue analysis of 118K+ transactions across 4 Indonesian branches using Power Query, Pivot, and Excel Dashboard.</p>
-          </div>
-        </div>
+  <!-- P4 -->
+  <div class="proj-card" data-cat="data" onclick="openModal('p4')">
+    <div class="proj-thumb-wrap">
+      <img src="projects/dqfashion/gambar1.png" onerror="this.src='https://placehold.co/400x160/C5C099/FFFFFF?text=DQFashion'" alt="DQFashion">
+    </div><!-- ✅ FIX: tag penutup proj-thumb-wrap ditambahkan di sini -->
+    <div class="proj-body">
+      <span class="proj-cat-badge">Data Analysis</span>
+      <h3>DQFashion Sales Analysis 2017</h3>
+      <p class="proj-tools">Excel · Power Query · Pivot</p>
+      <p>Analisis penjualan & revenue 118K+ transaksi dari 4 cabang Indonesia dengan Power Query, Pivot, dan Dashboard Excel.</p>
+    </div>
+  </div>
 
-        <!-- P5 -->
-        <div class="proj-card" data-cat="engineering" onclick="openModal('p5')">
-          <div class="proj-thumb-wrap">
-            <img src="myprojects/tmdbpipeline/arsitekturtmdb.png" onerror="this.src='https://placehold.co/400x160/5a6e59/FFFFFF?text=TMDB+Pipeline'" alt="TMDB">
-          </div>
-          <div class="proj-body">
-            <span class="proj-cat-badge">Data Engineering</span>
-            <h3>TMDB End-to-End Data Pipeline</h3>
-            <p class="proj-tools">PostgreSQL · PySpark · Python · dbt · Kafka · ClickHouse · MinIO · Streamlit · Airflow · BigQuery</p>
-            <p>Medallion Architecture pipeline (Bronze→Silver→Gold), Kafka CDC, ClickHouse, MinIO, and Streamlit dashboard.</p>
-          </div>
-        </div>
+  <!-- P5 -->
+  <div class="proj-card" data-cat="engineering" onclick="openModal('p5')">
+    <div class="proj-thumb-wrap">
+      <img src="projects/tmdb/gambar1.png" onerror="this.src='https://placehold.co/400x160/5a6e59/FFFFFF?text=TMDB+Pipeline'" alt="TMDB">
+    </div>
+    <div class="proj-body">
+      <span class="proj-cat-badge">Data Engineering</span>
+      <h3>TMDB End-to-End Data Pipeline</h3>
+      <p class="proj-tools">PostgreSQL · PySpark · Python · dbt · Kafka · ClickHouse · MinIO · Streamlit · Airflow · BigQuery</p>
+      <p>Pipeline Medallion Architecture (Bronze→Silver→Gold), Kafka CDC, ClickHouse, MinIO, dan Streamlit dashboard.</p>
+    </div>
+  </div>
 
-        <!-- P6 -->
-        <div class="proj-card" data-cat="app" onclick="openModal('p6')">
-          <div class="proj-thumb-wrap">
-            <img src="myprojects/finote/finote1.png" onerror="this.src='https://placehold.co/400x160/E29796/FFFFFF?text=Finote'" alt="Finote">
-          </div>
-          <div class="proj-body">
-            <span class="proj-cat-badge">Mobile Development</span>
-            <h3>FINOTE — Digital Wallet App</h3>
-            <p class="proj-tools">Flutter · Firebase · Dart · Android Studio</p>
-            <p>A personal finance tracking app built with Flutter & Firebase featuring transaction CRUD and Firebase Auth.</p>
-          </div>
-        </div>
+  <!-- P6 -->
+  <div class="proj-card" data-cat="app" onclick="openModal('p6')">
+    <div class="proj-thumb-wrap">
+      <img src="projects/finote/gambar1.png" onerror="this.src='https://placehold.co/400x160/E29796/FFFFFF?text=Finote'" alt="Finote">
+    </div>
+    <div class="proj-body">
+      <span class="proj-cat-badge">Mobile Development</span>
+      <h3>FINOTE — Digital Wallet App</h3>
+      <p class="proj-tools">Flutter · Firebase · Dart · Android Studio</p>
+      <p>Aplikasi pencatatan keuangan pribadi berbasis Flutter & Firebase dengan CRUD transaksi dan Firebase Auth.</p>
+    </div>
+  </div>
 
-      </div><!-- end page 1 -->
+</div><!-- end page 1 -->
 
-      <!-- PAGE 2 (project 7+) -->
-      <div class="proj-page">
+<!-- PAGE 2 (project 7+) -->
+<div class="proj-page">
 
-        <!-- P7 -->
-        <div class="proj-card" data-cat="app" onclick="openModal('p7')">
-          <div class="proj-thumb-wrap">
-            <img src="myprojects/keretain/kereta1.png" onerror="this.src='https://placehold.co/400x160/788E77/FFFFFF?text=Train+IN'" alt="Train IN">
-          </div>
-          <div class="proj-body">
-            <span class="proj-cat-badge">Web Development</span>
-            <h3>TRAIN IN — Ticketing Website</h3>
-            <p class="proj-tools">PHP · HTML · CSS · JavaScript · MySQL</p>
-            <p>A PHP & JS-based train e-ticketing system with schedule search, CRUD, payment proof upload, and invoice printing.</p>
-          </div>
-        </div>
+  <!-- P7 -->
+  <div class="proj-card" data-cat="app" onclick="openModal('p7')">
+    <div class="proj-thumb-wrap">
+      <img src="projects/trainin/gambar1.png" onerror="this.src='https://placehold.co/400x160/788E77/FFFFFF?text=Train+IN'" alt="Train IN">
+    </div>
+    <div class="proj-body">
+      <span class="proj-cat-badge">Web Development</span>
+      <h3>TRAIN IN — Ticketing Website</h3>
+      <p class="proj-tools">PHP · HTML · CSS · JavaScript · MySQL</p>
+      <p>Sistem e-ticketing kereta api berbasis PHP & JS dengan pencarian jadwal, CRUD, upload bukti bayar, dan cetak invoice.</p>
+    </div>
+  </div>
 
-        <!-- P8 -->
-        <div class="proj-card" data-cat="data" onclick="openModal('p8')">
-          <div class="proj-thumb-wrap">
-            <img src="myprojects/hackathondqlab/index.png" onerror="this.src='https://placehold.co/400x160/EADEBF/788E77?text=Hackathon+DQLab'" alt="Hackathon DQLab">
-          </div>
-          <div class="proj-body">
-            <span class="proj-cat-badge">Data Analysis · Hackathon</span>
-            <h3>Retail Crisis & Recovery Analysis — DQLab Hackathon</h3>
-            <p class="proj-tools">Python · Pandas · Matplotlib · openpyxl · Apriori (mlxtend)</p>
-            <p>Top 100 finalist (Rank #88/464) — retail sales trend analysis using Moving Average, Apriori association rules, and Excel output.</p>
-          </div>
-        </div>
+</div><!-- end page 2 -->
+
+        <!-- Placeholder kosong — nanti isi project baru -->
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
 
       </div><!-- end page 2 -->
 
@@ -899,7 +908,7 @@ footer {
 <section id="certificates">
   <div class="section-script">Certificates</div>
   <div class="cert-grid">
-
+ 
     <div class="cert-card" onclick="openCert('Advanced Tableau: Data Storytelling &amp; Geospatial Visualization', 'https://drive.google.com/file/d/1VbzMMW02c1rI98VttQri2od3dx-a4RNg/preview', 'https://drive.google.com/uc?export=download&amp;id=1VbzMMW02c1rI98VttQri2od3dx-a4RNg')">
       <div class="cert-thumb">
         <img src="certificates/sertif1.png" alt="Advanced Tableau" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
@@ -911,43 +920,41 @@ footer {
         <button class="cert-view-btn">View Certificate</button>
       </div>
     </div>
-
-    <div class="cert-card" onclick="openCert('Introduction to Cloud and Gen AI on AWS', 'https://drive.google.com/file/d/1FitDy0euaLKGKZa-jCuEpqRA9xQW-EkA/preview', 'https://drive.google.com/uc?export=download&amp;id=1FitDy0euaLKGKZa-jCuEpqRA9xQW-EkA')">
+ 
+    <div class="cert-card" onclick="openCert('Belajar Dasar Cloud dan Gen AI di AWS', 'https://drive.google.com/file/d/1FitDy0euaLKGKZa-jCuEpqRA9xQW-EkA/preview', 'https://drive.google.com/uc?export=download&amp;id=1FitDy0euaLKGKZa-jCuEpqRA9xQW-EkA')">
       <div class="cert-thumb">
         <img src="certificates/sertif2.png" alt="Cloud AWS" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="cert-thumb-placeholder" style="display:none"><i class="fas fa-certificate"></i></div>
       </div>
       <div class="cert-body">
-        <h4>Introduction to Cloud and Gen AI on AWS</h4>
-        <div class="cert-meta">Dicoding Indonesia · 18 October 2025 · 4EXG3VNDQZRL</div>
+        <h4>Belajar Dasar Cloud dan Gen AI di AWS</h4>
+        <div class="cert-meta">Dicoding Indonesia · 18 Oktober 2025 · 4EXG3VNDQZRL</div>
         <button class="cert-view-btn">View Certificate</button>
       </div>
     </div>
+<div class="cert-card" onclick="openCert('Introduction to Data Engineering', 'https://drive.google.com/file/d/1VnTyRk_yrVM0mzvcm0N0MRAUAQgoErei/preview', 'https://drive.google.com/uc?export=download&id=1VnTyRk_yrVM0mzvcm0N0MRAUAQgoErei')">
+  <div class="cert-thumb">
+    <img src="certificates/sertif3.png" alt="Intro Data Engineering" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="cert-thumb-placeholder" style="display:none"><i class="fas fa-certificate"></i></div>
+  </div>
+  <div class="cert-body">
+    <h4>Introduction to Data Engineering</h4>
+    <div class="cert-meta">IBM / Coursera · Dec 30, 2025 · coursera.org/verify/5C3M8EI9TG86</div>
+    <button class="cert-view-btn">View Certificate</button>
+  </div>
+</div>
 
-    <div class="cert-card" onclick="openCert('Introduction to Data Engineering', 'https://drive.google.com/file/d/1VnTyRk_yrVM0mzvcm0N0MRAUAQgoErei/preview', 'https://drive.google.com/uc?export=download&id=1VnTyRk_yrVM0mzvcm0N0MRAUAQgoErei')">
-      <div class="cert-thumb">
-        <img src="certificates/sertif3.png" alt="Intro Data Engineering" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="cert-thumb-placeholder" style="display:none"><i class="fas fa-certificate"></i></div>
-      </div>
-      <div class="cert-body">
-        <h4>Introduction to Data Engineering</h4>
-        <div class="cert-meta">IBM / Coursera · Dec 30, 2025 · coursera.org/verify/5C3M8EI9TG86</div>
-        <button class="cert-view-btn">View Certificate</button>
-      </div>
-    </div>
-
-    <div class="cert-card" onclick="openCert('Preparing Data for Analysis with Microsoft Excel', 'https://drive.google.com/file/d/1VnTyRk_yrVM0mzvcm0N0MRAUAQgoErei/preview', 'https://drive.google.com/uc?export=download&id=1VnTyRk_yrVM0mzvcm0N0MRAUAQgoErei')">
-      <div class="cert-thumb">
-        <img src="certificates/sertif4.png" alt="Preparing Data Excel" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="cert-thumb-placeholder" style="display:none"><i class="fas fa-certificate"></i></div>
-      </div>
-      <div class="cert-body">
-        <h4>Preparing Data for Analysis with Microsoft Excel</h4>
-        <div class="cert-meta">Microsoft / Coursera · Sep 28, 2025 · coursera.org/verify/Y8N12QN7OPPB</div>
-        <button class="cert-view-btn">View Certificate</button>
-      </div>
-    </div>
-
+<div class="cert-card" onclick="openCert('Preparing Data for Analysis with Microsoft Excel', 'https://drive.google.com/file/d/1VnTyRk_yrVM0mzvcm0N0MRAUAQgoErei/preview', 'https://drive.google.com/uc?export=download&id=1VnTyRk_yrVM0mzvcm0N0MRAUAQgoErei')">
+  <div class="cert-thumb">
+    <img src="certificates/sertif4.png" alt="Preparing Data Excel" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="cert-thumb-placeholder" style="display:none"><i class="fas fa-certificate"></i></div>
+  </div>
+  <div class="cert-body">
+    <h4>Preparing Data for Analysis with Microsoft Excel</h4>
+    <div class="cert-meta">Microsoft / Coursera · Sep 28, 2025 · coursera.org/verify/Y8N12QN7OPPB</div>
+    <button class="cert-view-btn">View Certificate</button>
+  </div>
+</div>  
     <div class="cert-card" onclick="openCert('Comprehensive SQL Mastery', 'https://drive.google.com/file/d/1RabPLcsYWLCgAHPpBlMymfgVbhZTwc5b/preview', 'https://drive.google.com/uc?export=download&amp;id=1RabPLcsYWLCgAHPpBlMymfgVbhZTwc5b')">
       <div class="cert-thumb">
         <img src="certificates/sertif5.png" alt="SQL Mastery" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
@@ -959,19 +966,19 @@ footer {
         <button class="cert-view-btn">View Certificate</button>
       </div>
     </div>
-
-    <div class="cert-card" onclick="openCert('Data Analyst Bootcamp', 'https://drive.google.com/file/d/11w8fnLLrl1kTyiWylzaSy0zxa56sd0s8/preview', 'https://drive.google.com/uc?export=download&amp;id=11w8fnLLrl1kTyiWylzaSy0zxa56sd0s8')">
+ 
+    <div class="cert-card" onclick="openCert('Bootcamp Data Analyst', 'https://drive.google.com/file/d/11w8fnLLrl1kTyiWylzaSy0zxa56sd0s8/preview', 'https://drive.google.com/uc?export=download&amp;id=11w8fnLLrl1kTyiWylzaSy0zxa56sd0s8')">
       <div class="cert-thumb">
         <img src="certificates/sertif6.png" alt="Data Analyst Bootcamp" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="cert-thumb-placeholder" style="display:none"><i class="fas fa-certificate"></i></div>
       </div>
       <div class="cert-body">
-        <h4>Data Analyst Bootcamp</h4>
+        <h4>Bootcamp Data Analyst</h4>
         <div class="cert-meta">Special Skill Indonesia · 20 April 2025 · SSB09G035</div>
         <button class="cert-view-btn">View Certificate</button>
       </div>
     </div>
-
+ 
     <div class="cert-card" onclick="openCert('Data Engineering Mini Bootcamp Batch 7', 'https://drive.google.com/file/d/1ZsyO_0PwIoGDcXJWfmKA6U9K-EMzfBae/preview', 'https://drive.google.com/uc?export=download&amp;id=1ZsyO_0PwIoGDcXJWfmKA6U9K-EMzfBae')">
       <div class="cert-thumb">
         <img src="certificates/sertif7.png" alt="Data Engineering Bootcamp" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
@@ -983,20 +990,19 @@ footer {
         <button class="cert-view-btn">View Certificate</button>
       </div>
     </div>
-
-    <div class="cert-card" onclick="openCert('Implementing Data Science with Microsoft Fabric', 'https://drive.google.com/file/d/13OegvjcMMcwtL4tf86d6A7ok-1oW_AZu/preview', 'https://drive.google.com/uc?export=download&amp;id=13OegvjcMMcwtL4tf86d6A7ok-1oW_AZu')">
+ 
+    <div class="cert-card" onclick="openCert('Belajar Penerapan Data Science dengan Microsoft Fabric', 'https://drive.google.com/file/d/13OegvjcMMcwtL4tf86d6A7ok-1oW_AZu/preview', 'https://drive.google.com/uc?export=download&amp;id=13OegvjcMMcwtL4tf86d6A7ok-1oW_AZu')">
       <div class="cert-thumb">
         <img src="certificates/sertif8.png" alt="Microsoft Fabric" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="cert-thumb-placeholder" style="display:none"><i class="fas fa-certificate"></i></div>
       </div>
       <div class="cert-body">
-        <h4>Implementing Data Science with Microsoft Fabric</h4>
-        <div class="cert-meta">Dicoding Indonesia · 28 October 2025 · N9ZO22Q86PG5</div>
+        <h4>Belajar Penerapan Data Science dengan Microsoft Fabric</h4>
+        <div class="cert-meta">Dicoding Indonesia · 28 Oktober 2025 · N9ZO22Q86PG5</div>
         <button class="cert-view-btn">View Certificate</button>
       </div>
     </div>
-
-    <div class="cert-card" onclick="openCert('Classifying &amp; Summarizing Data Using IBM Granite', 'https://drive.google.com/file/d/1qPOSrGff845JOT_zNaJUwZGKp4lbfO7z/preview', 'https://drive.google.com/uc?export=download&amp;id=1qPOSrGff845JOT_zNaJUwZGKp4lbfO7z')">
+<div class="cert-card" onclick="openCert('Classifying &amp; Summarizing Data Using IBM Granite', 'https://drive.google.com/file/d/1qPOSrGff845JOT_zNaJUwZGKp4lbfO7z/preview', 'https://drive.google.com/uc?export=download&amp;id=1qPOSrGff845JOT_zNaJUwZGKp4lbfO7z')">
       <div class="cert-thumb">
         <img src="certificates/sertif9.png" alt="IBM Granite Classify" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="cert-thumb-placeholder" style="display:none"><i class="fas fa-certificate"></i></div>
@@ -1007,7 +1013,6 @@ footer {
         <button class="cert-view-btn">View Certificate</button>
       </div>
     </div>
-
     <div class="cert-card" onclick="openCert('EF SET English Certificate — B2 Upper Intermediate', 'https://drive.google.com/file/d/1f7E_acxqKdw6Tq3w-cQi1PhMk3hVgokw/preview', 'https://drive.google.com/uc?export=download&amp;id=1f7E_acxqKdw6Tq3w-cQi1PhMk3hVgokw')">
       <div class="cert-thumb">
         <img src="certificates/sertif10.png" alt="EF SET" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
@@ -1019,7 +1024,7 @@ footer {
         <button class="cert-view-btn">View Certificate</button>
       </div>
     </div>
-
+ 
     <div class="cert-card" onclick="openCert('International Business Seminar — Excel Mastery for Professionals', 'https://drive.google.com/file/d/1MkYsEPOXgGMHZQzHnge4e2OFCjq1C1v9/preview', 'https://drive.google.com/uc?export=download&amp;id=1MkYsEPOXgGMHZQzHnge4e2OFCjq1C1v9')">
       <div class="cert-thumb">
         <img src="certificates/sertif11.png" alt="Excel Mastery" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
@@ -1031,19 +1036,17 @@ footer {
         <button class="cert-view-btn">View Certificate</button>
       </div>
     </div>
-
-    <div class="cert-card" onclick="openCert('Student Transcript — AI Agent for Data Analyst', 'https://drive.google.com/file/d/1doh9bZKs6i2pg5k-noNwTljwe6lAtFYL/preview', 'https://drive.google.com/uc?export=download&id=1doh9bZKs6i2pg5k-noNwTljwe6lAtFYL')">
-      <div class="cert-thumb">
-        <img src="certificates/sertif12.png" alt="Transcript AI Agent for Data Analyst" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="cert-thumb-placeholder" style="display:none"><i class="fas fa-certificate"></i></div>
-      </div>
-      <div class="cert-body">
-        <h4>Student Transcript — AI Agent for Data Analyst</h4>
-        <div class="cert-meta">Student Transcript</div>
-        <button class="cert-view-btn">View Certificate</button>
-      </div>
-    </div>
-
+<div class="cert-card" onclick="openCert('Transkrip Nilai - AI Agent for Data Analyst', 'https://drive.google.com/file/d/1doh9bZKs6i2pg5k-noNwTljwe6lAtFYL/preview', 'https://drive.google.com/uc?export=download&id=1doh9bZKs6i2pg5k-noNwTljwe6lAtFYL')">
+  <div class="cert-thumb">
+    <img src="certificates/sertif12.png" alt="Transkrip Nilai - AI Agent for Data Analyst" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="cert-thumb-placeholder" style="display:none"><i class="fas fa-certificate"></i></div>
+  </div>
+  <div class="cert-body">
+    <h4>Transkrip Nilai - AI Agent for Data Analyst</h4>
+    <div class="cert-meta">Transkrip Nilai</div>
+    <button class="cert-view-btn">View Certificate</button>
+  </div>
+</div>
     <div class="cert-card" onclick="openCert('Certificate of Achievement — Hackathon Retail Crisis &amp; Recovery (Top 100, Rank #88/464)', 'https://drive.google.com/file/d/1lfbt5-Rfq6tfjHMaC_had0-l99UxfkCj/preview', 'https://drive.google.com/uc?export=download&amp;id=1lfbt5-Rfq6tfjHMaC_had0-l99UxfkCj')">
       <div class="cert-thumb">
         <img src="certificates/sertif13.png" alt="Hackathon DQLab" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
@@ -1055,7 +1058,7 @@ footer {
         <button class="cert-view-btn">View Certificate</button>
       </div>
     </div>
-
+ 
     <div class="cert-card" onclick="openCert('Student Transcript — Data Classification &amp; Summarization (IBM SkillsBuild x Hacktiv8)', 'https://drive.google.com/file/d/12vdkBmxI0Lu3afrMpXmsfy9O4aETUihw/preview', 'https://drive.google.com/uc?export=download&amp;id=12vdkBmxI0Lu3afrMpXmsfy9O4aETUihw')">
       <div class="cert-thumb">
         <img src="certificates/sertif14.png" alt="Student Transcript IBM" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
@@ -1067,7 +1070,7 @@ footer {
         <button class="cert-view-btn">View Certificate</button>
       </div>
     </div>
-
+ 
   </div>
 </section>
 
@@ -1092,7 +1095,7 @@ footer {
 <!-- ═══ CONTACT ═══ -->
 <section id="contact">
   <div class="section-script">Contact Me</div>
-  <p>Open to collaborations, job opportunities, and discussions around data & technology. Feel free to reach out!</p>
+  <p>Terbuka untuk kolaborasi, kesempatan kerja, dan diskusi seputar data & teknologi. Jangan ragu untuk menghubungi!</p>
   <div class="contact-socials">
     <a href="https://wa.me/6285746707251" target="_blank"><i class="fab fa-whatsapp"></i></a>
     <a href="https://www.linkedin.com/in/nabila-hulwana-109016286/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
