@@ -253,6 +253,7 @@ function renderProjects() {
         <div class="proj-body">
           <span class="proj-cat-badge">${proj.cat}</span>
           <h3>${proj.title}</h3>
+          <p class="proj-tech-preview">${proj.tech.join(' · ')}</p>
         </div>
       </div>`;
   });
