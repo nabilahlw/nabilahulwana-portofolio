@@ -201,14 +201,32 @@ const projects = {
       { type: 'img', src: 'myprojects/keretain/kereta5.png' },
       { type: 'img', src: 'myprojects/keretain/kereta6.png' },
     ]
+  },
+
+  p9: {
+    title: 'Sistem Integrasi Kampus (SIAKAD, SIMPEG & SIKEU)',
+    cat: 'Web Development',
+    catFilter: 'app',
+    desc: `<b>Tujuan Aplikasi:</b> Integrasi 3 sistem akademik kampus (SIAKAD, SIMPEG, SIKEU) yang masing-masing punya database MySQL terpisah, sehingga data antar sistem bisa saling terbaca secara real-time.\n\n<b>Fitur Utama:</b>\n• SIAKAD: manajemen data mahasiswa, dosen, dan mata kuliah\n• SIMPEG: manajemen data pegawai dan jabatan\n• SIKEU: manajemen tagihan mahasiswa dengan pembayaran online via Midtrans Snap\n• Cross-database Eloquent Relationship untuk membaca data lintas sistem (contoh: SIKEU menampilkan data mahasiswa dari SIAKAD)\n• Auto-generate kode unik untuk tiap entitas (NIM, NIDN, kode tagihan, dll)\n\n<b>Tools & Teknologi:</b>\n• Laravel (multi-database connection)\n• MySQL (3 database terpisah: siakad, simpeg, sikeu)\n• Midtrans Snap (payment gateway)\n• Eloquent ORM`,
+    tech: ['Laravel','MySQL','Midtrans'],
+    links: [],
+    media: [
+      { type: 'img', src: 'myprojects/sistemintegrasi/images/dashboard2_sikeu.png' },
+      { type: 'img', src: 'myprojects/sistemintegrasi/images/dashboardsiakad.png' },
+      { type: 'img', src: 'myprojects/sistemintegrasi/images/form_jabatan.png' },
+      { type: 'img', src: 'myprojects/sistemintegrasi/images/form_pegawai.png' },
+      { type: 'img', src: 'myprojects/sistemintegrasi/images/form_mhs.png' },
+      { type: 'img', src: 'myprojects/sistemintegrasi/images/tabel1.png' },
+      { type: 'img', src: 'myprojects/sistemintegrasi/images/tabel2.png' },
+      { type: 'pdf', src: 'myprojects/sistemintegrasi/dokumentasi-sistemintegrasi.pdf', label: 'Download Dokumentasi PDF' },
+    ]
   }
+
 };
 
 /* ═══════════════════════════════════════════════════
-   PROJECT PAGES / PAGINATION
+   PROJECT GRID (1 halaman, scroll ke bawah)
 ═══════════════════════════════════════════════════ */
-let currentPage = 0;
-const ITEMS_PER_PAGE = 6;
 let activeFilter = 'all';
 let filteredKeys = [];
 
@@ -220,52 +238,25 @@ function getFilteredKeys() {
 
 function renderProjects() {
   filteredKeys = getFilteredKeys();
-  currentPage = 0;
-
-  const totalPages = Math.ceil(filteredKeys.length / ITEMS_PER_PAGE);
   const pagesEl = document.getElementById('projPages');
-  const dotsEl  = document.getElementById('projDots');
 
   let html = '';
-  for (let p = 0; p < totalPages; p++) {
-    const pageKeys = filteredKeys.slice(p * ITEMS_PER_PAGE, (p + 1) * ITEMS_PER_PAGE);
-    html += `<div class="proj-page">`;
-    pageKeys.forEach(k => {
-      const proj = projects[k];
-      const thumb = proj.media.find(m => m.type === 'img');
-      const thumbSrc = thumb ? thumb.src : '';
-      html += `
-        <div class="proj-card" onclick="openModal('${k}')">
-          <div class="proj-thumb-wrap">
-            <img src="${thumbSrc}" onerror="this.style.display='none'" alt="${proj.title}">
-            <div class="proj-title-overlay">${proj.title}</div>
-          </div>
-          <div class="proj-body">
-            <span class="proj-cat-badge">${proj.cat}</span>
-            <h3>${proj.title}</h3>
-          </div>
-        </div>`;
-    });
-    const empty = ITEMS_PER_PAGE - pageKeys.length;
-    for (let e = 0; e < empty; e++) html += `<div></div>`;
-    html += `</div>`;
-  }
+  filteredKeys.forEach(k => {
+    const proj = projects[k];
+    const thumb = proj.media.find(m => m.type === 'img');
+    const thumbSrc = thumb ? thumb.src : '';
+    html += `
+      <div class="proj-card" onclick="openModal('${k}')">
+        <div class="proj-thumb-wrap">
+          <img src="${thumbSrc}" onerror="this.style.display='none'" alt="${proj.title}">
+        </div>
+        <div class="proj-body">
+          <span class="proj-cat-badge">${proj.cat}</span>
+          <h3>${proj.title}</h3>
+        </div>
+      </div>`;
+  });
   pagesEl.innerHTML = html;
-
-  let dotsHtml = '';
-  for (let i = 0; i < totalPages; i++) {
-    dotsHtml += `<button class="proj-dot ${i===0?'active':''}" onclick="goPage(${i})">${i+1}</button>`;
-  }
-  dotsEl.innerHTML = dotsHtml;
-
-  goPage(0);
-}
-
-function goPage(n) {
-  currentPage = n;
-  const pagesEl = document.getElementById('projPages');
-  pagesEl.style.transform = `translateX(-${n * 100}%)`;
-  document.querySelectorAll('.proj-dot').forEach((d,i) => d.classList.toggle('active', i===n));
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -375,6 +366,8 @@ function getTechIcon(name) {
     'CSS':            'devicon-css3-plain colored',
     'JavaScript':     'devicon-javascript-plain colored',
     'MySQL':          'devicon-mysql-plain colored',
+    'Laravel':        'devicon-laravel-plain colored',
+    'Midtrans':       'fas fa-credit-card',
     'PostgreSQL':     'devicon-postgresql-plain colored',
     'PySpark':        'devicon-apachespark-plain colored',
     'dbt':            'fas fa-layer-group',
@@ -400,8 +393,6 @@ function getTechIcon(name) {
 
 /* ═══════════════════════════════════════════════════
    CERTIFICATES MODAL
-   Uses actual filenames from /certificates/ folder.
-   JPG = tampil langsung | PDF = embed + link Drive
 ═══════════════════════════════════════════════════ */
 const CERTS = [
   { title: 'SmartPath Bootcamp — Advanced Tableau: Data Storytelling & Geospatial Visualization',
@@ -490,16 +481,12 @@ const CERTS = [
     dl: 'https://drive.google.com/file/d/1VbzMMW02c1rI98VttQri2od3dx-a4RNg/view?usp=sharing' },
 ];
 
-/* openCert now called directly from onclick with (title, previewUrl, downloadUrl) */
 function openCert(title, previewUrl, downloadUrl) {
-  // Set header title
   document.getElementById('certModalTitle').textContent = title;
 
-  // Set download button
   const dl = document.getElementById('certModalDl');
   dl.href = downloadUrl;
 
-  // Build body: Google Drive iframe embed
   const body = document.getElementById('certModalBody');
   body.innerHTML = `
     <iframe
@@ -515,7 +502,6 @@ function openCert(title, previewUrl, downloadUrl) {
 
 function closeCert() {
   document.getElementById('certModalOverlay').classList.remove('open');
-  // Clear iframe to stop loading
   document.getElementById('certModalBody').innerHTML = '';
   document.body.style.overflow = '';
 }
