@@ -220,6 +220,23 @@ const projects = {
       { type: 'img', src: 'myprojects/sistemintegrasi/images/tabel2.png' },
       { type: 'pdf', src: 'myprojects/sistemintegrasi/dokumentasi-sistemintegrasi.pdf', label: 'Download Dokumentasi PDF' },
     ]
+  },
+  p9: {
+    title: 'Bot WhatsApp Otomasi Dokumentasi',
+    cat: 'Automation & Bot Development',
+    catFilter: 'app',
+    desc: `<b>Tujuan Aplikasi:</b> Membangun bot WhatsApp otomatis berbasis AI yang mampu menerima foto/video dokumentasi kegiatan dari WhatsApp Group, melakukan klasifikasi nama sekolah & kelas secara cerdas (termasuk toleransi typo/kata baru), lalu mengunggahnya secara otomatis ke hierarki folder Google Drive yang terstruktur.\n\n<b>Fitur Utama:</b>\n• <b>Strict & AI-Powered Smart Normalization:</b> Algoritma pemrosesan string presisi tinggi untuk membaca jenjang (SD/SMP), nama sekolah, dan kode kelas. Dilengkapi sistem pencocokan fuzzy untuk memperbaiki typo otomatis (misal: "Hebit/Hebut" → "Hebat"), serta kemampuan membuat folder baru dinamis jika terdeteksi nama sekolah baru.\n• <b>Auto-Folder Hierarchy in Google Drive:</b> Membuat dan mengorganisir folder di Google Drive secara otomatis berdasarkan nama kelas dan bulan-tahun berjalan (Parent Folder → Nama Kelas → Bulan-Tahun → File).\n• <b>Multi-Media Handler:</b> Mendukung pengunggahan gambar dan video dengan ekstraksi format file dinamis (JPEG, PNG, MP4, MOV, dll.) serta proteksi timeout.\n• <b>WhatsApp Session & Group Listener:</b> Integrasi session persistence menggunakan LocalAuth untuk memantau pesan masuk dari grup target secara real-time.\n• <b>Auto Reply with Interactive Path:</b> Memberikan respons otomatis di WhatsApp setelah pengunggahan berhasil, lengkap dengan informasi lokasi path folder di Google Drive.`,
+    tech: ['Node.js','JavaScript','Google Drive API','Gemini AI'],
+    links: [
+      { label: 'GitHub', icon: 'fab fa-github', url: 'https://github.com/nabilahlw/documentation-automation-whatsapp-web.js.git' },
+      { label: 'Demo Video', icon: 'fas fa-play-circle', url: 'https://drive.google.com/file/d/1mJBEVsjqIqzRrnYgQi2r6_dWnk7NWzKJ/view?usp=drive_link' },
+    ],
+    media: [
+      { type: 'img', src: 'myprojects/whatsapp-bot/bot1.png' },
+      { type: 'img', src: 'myprojects/whatsapp-bot/bot2.png' },
+      { type: 'img', src: 'myprojects/whatsapp-bot/bot3.png' },
+      { type: 'img', src: 'myprojects/whatsapp-bot/bot4.png' },
+    ]
   }
 
 };
@@ -388,6 +405,7 @@ function getTechIcon(name) {
     'Power Pivot':    'fas fa-cubes',
     'DAX':            'fas fa-function',
     'Android Studio': 'fab fa-android',
+    'Node.js':        'devicon-nodejs-plain colored',
   };
   return map[name] || 'fas fa-code';
 }
@@ -441,10 +459,10 @@ const CERTS = [
     isImg: false,
     dl: 'https://drive.google.com/file/d/1f7E_acxqKdw6Tq3w-cQi1PhMk3hVgokw/view?usp=sharing' },
 
-  { title: 'International Business Seminar — Excel Mastery for Professionals',
-    file: 'certificates/Certificate - Excel Mastery for Professionals - Business Education.pdf',
+  { title: 'ID/X Partners Data Engineering Project Based Internship Program',
+    file: 'certificates/Certificate of Completion-DataEng-RAKAMIN.pdf',
     isImg: false,
-    dl: 'https://drive.google.com/file/d/1MkYsEPOXgGMHZQzHnge4e2OFCjq1C1v9/view?usp=sharing' },
+    dl: 'https://drive.google.com/file/d/1y83cEircqMBFgJMXc6ghzp6eMLW_YbaU/view?usp=sharing' },
 
   { title: 'SmartPath Bootcamp — Excel Proficiency to Business Strategy',
     file: 'certificates/Certificate - Excel Proficiency to Business Strategy - SmartPath.jpg',
