@@ -76,10 +76,10 @@ const projects = {
       { label: 'Power BI Dashboard', icon: 'fas fa-chart-bar', url: 'https://drive.google.com/file/d/1EXKROfxeIs3ftUMMWxpANOcGnSTekh0J/view?usp=sharing' },
     ],
     media: [
+      { type: 'img', src: 'myprojects/hranalisis/hr4.png' },
       { type: 'img', src: 'myprojects/hranalisis/hr1.png' },
       { type: 'img', src: 'myprojects/hranalisis/hr2.png' },
       { type: 'img', src: 'myprojects/hranalisis/hr3.png' },
-      { type: 'img', src: 'myprojects/hranalisis/hr4.png' },
       { type: 'img', src: 'myprojects/hranalisis/hr5.png' },
       { type: 'img', src: 'myprojects/hranalisis/hr6.png' },
       { type: 'img', src: 'myprojects/hranalisis/hr7.png' },
@@ -140,6 +140,7 @@ const projects = {
       { label: 'LinkedIn Post', icon: 'fab fa-linkedin', url: 'https://www.linkedin.com/posts/nabila-hulwana_dqlab-python-hackathon-ugcPost-7467843472805236737-F7gN/' },
     ],
     media: [
+      { type: 'img', src: 'myprojects/hackathondqlab/poster.png' },
       { type: 'img', src: 'myprojects/hackathondqlab/index.png' },
       { type: 'img', src: 'myprojects/hackathondqlab/actual.png' },
       { type: 'pdf', src: 'myprojects/hackathondqlab/PPT - Hackathon DQLab.pdf', label: 'Download PPT PDF' },
@@ -208,11 +209,11 @@ const projects = {
     cat: 'Web Development',
     catFilter: 'app',
     desc: `<b>Tujuan Aplikasi:</b> Integrasi 3 sistem akademik kampus (SIAKAD, SIMPEG, SIKEU) yang masing-masing punya database MySQL terpisah, sehingga data antar sistem bisa saling terbaca secara real-time.\n\n<b>Fitur Utama:</b>\n• SIAKAD: manajemen data mahasiswa, dosen, dan mata kuliah\n• SIMPEG: manajemen data pegawai dan jabatan\n• SIKEU: manajemen tagihan mahasiswa dengan pembayaran online via Midtrans Snap\n• Cross-database Eloquent Relationship untuk membaca data lintas sistem (contoh: SIKEU menampilkan data mahasiswa dari SIAKAD)\n• Auto-generate kode unik untuk tiap entitas (NIM, NIDN, kode tagihan, dll)\n\n<b>Tools & Teknologi:</b>\n• Laravel (multi-database connection)\n• MySQL (3 database terpisah: siakad, simpeg, sikeu)\n• Midtrans Snap (payment gateway)\n• Eloquent ORM`,
-    tech: ['Laravel','MySQL','Midtrans'],
-    links: [],
+    tech: ['Laravel','PHP','MySQL','Midtrans'],
+    links: [{ label: 'GitHub', icon: 'fab fa-github', url: 'https://github.com/nabilahlw/integrated-campus-information-system.git' }],
     media: [
-      { type: 'img', src: 'myprojects/sistemintegrasi/images/dashboard2_sikeu.png' },
       { type: 'img', src: 'myprojects/sistemintegrasi/images/dashboardsiakad.png' },
+      { type: 'img', src: 'myprojects/sistemintegrasi/images/dashboard2_sikeu.png' },
       { type: 'img', src: 'myprojects/sistemintegrasi/images/form_jabatan.png' },
       { type: 'img', src: 'myprojects/sistemintegrasi/images/form_pegawai.png' },
       { type: 'img', src: 'myprojects/sistemintegrasi/images/form_mhs.png' },
@@ -226,7 +227,7 @@ const projects = {
     cat: 'Automation & Bot Development',
     catFilter: 'app',
     desc: `<b>Tujuan Aplikasi:</b> Membangun bot WhatsApp otomatis berbasis AI yang mampu menerima foto/video dokumentasi kegiatan dari WhatsApp Group, melakukan klasifikasi nama sekolah & kelas secara cerdas (termasuk toleransi typo/kata baru), lalu mengunggahnya secara otomatis ke hierarki folder Google Drive yang terstruktur.\n\n<b>Fitur Utama:</b>\n• <b>Strict & AI-Powered Smart Normalization:</b> Algoritma pemrosesan string presisi tinggi untuk membaca jenjang (SD/SMP), nama sekolah, dan kode kelas. Dilengkapi sistem pencocokan fuzzy untuk memperbaiki typo otomatis (misal: "Hebit/Hebut" → "Hebat"), serta kemampuan membuat folder baru dinamis jika terdeteksi nama sekolah baru.\n• <b>Auto-Folder Hierarchy in Google Drive:</b> Membuat dan mengorganisir folder di Google Drive secara otomatis berdasarkan nama kelas dan bulan-tahun berjalan (Parent Folder → Nama Kelas → Bulan-Tahun → File).\n• <b>Multi-Media Handler:</b> Mendukung pengunggahan gambar dan video dengan ekstraksi format file dinamis (JPEG, PNG, MP4, MOV, dll.) serta proteksi timeout.\n• <b>WhatsApp Session & Group Listener:</b> Integrasi session persistence menggunakan LocalAuth untuk memantau pesan masuk dari grup target secara real-time.\n• <b>Auto Reply with Interactive Path:</b> Memberikan respons otomatis di WhatsApp setelah pengunggahan berhasil, lengkap dengan informasi lokasi path folder di Google Drive.`,
-    tech: ['Node.js','JavaScript','Google Drive API','Gemini AI'],
+    tech: ['Node.js','Google Drive API','Gemini AI'],
     links: [
       { label: 'GitHub', icon: 'fab fa-github', url: 'https://github.com/nabilahlw/documentation-automation-whatsapp-web.js.git' },
       { label: 'Demo Video', icon: 'fas fa-play-circle', url: 'https://drive.google.com/file/d/1mJBEVsjqIqzRrnYgQi2r6_dWnk7NWzKJ/view?usp=drive_link' },
