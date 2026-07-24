@@ -221,7 +221,7 @@ const projects = {
       { type: 'pdf', src: 'myprojects/sistemintegrasi/dokumentasi-sistemintegrasi.pdf', label: 'Download Dokumentasi PDF' },
     ]
   },
-  p9: {
+  p10: {
     title: 'Bot WhatsApp Otomasi Dokumentasi',
     cat: 'Automation & Bot Development',
     catFilter: 'app',
