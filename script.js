@@ -273,7 +273,7 @@ tech: [
     },
   ],
   media: [
-    { type: 'img', src: 'myprojects/clinic-integrated-system/clicic1.png' },
+    { type: 'img', src: 'myprojects/clinic-integrated-system/clinic1.png' },
     { type: 'img', src: 'myprojects/clinic-integrated-system/clinic2.png' },
     { type: 'img', src: 'myprojects/clinic-integrated-system/clinic3.png' },
     { type: 'img', src: 'myprojects/clinic-integrated-system/clinic4.png' },
