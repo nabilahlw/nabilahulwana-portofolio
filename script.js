@@ -210,7 +210,12 @@ const projects = {
     catFilter: 'app',
     desc: `<b>Tujuan Aplikasi:</b> Integrasi 3 sistem akademik kampus (SIAKAD, SIMPEG, SIKEU) yang masing-masing punya database MySQL terpisah, sehingga data antar sistem bisa saling terbaca secara real-time.\n\n<b>Fitur Utama:</b>\n• SIAKAD: manajemen data mahasiswa, dosen, dan mata kuliah\n• SIMPEG: manajemen data pegawai dan jabatan\n• SIKEU: manajemen tagihan mahasiswa dengan pembayaran online via Midtrans Snap\n• Cross-database Eloquent Relationship untuk membaca data lintas sistem (contoh: SIKEU menampilkan data mahasiswa dari SIAKAD)\n• Auto-generate kode unik untuk tiap entitas (NIM, NIDN, kode tagihan, dll)\n\n<b>Tools & Teknologi:</b>\n• Laravel (multi-database connection)\n• MySQL (3 database terpisah: siakad, simpeg, sikeu)\n• Midtrans Snap (payment gateway)\n• Eloquent ORM`,
     tech: ['Laravel','PHP','MySQL','Midtrans'],
-    links: [{ label: 'GitHub', icon: 'fab fa-github', url: 'https://github.com/nabilahlw/integrated-campus-information-system.git' }],
+    links: [{ label: 'GitHub', icon: 'fab fa-github', url: 'https://github.com/nabilahlw/integrated-campus-information-system.git' },
+      {
+      label: 'Demo Video',
+      icon: 'fas fa-play-circle',
+      url: 'https://drive.google.com/file/d/1FYWI-2kRL4NmZh30aE1Zw5yYQr9VFBIK/view?usp=sharing'
+    }],
     media: [
       { type: 'img', src: 'myprojects/sistemintegrasi/images/dashboardsiakad.png' },
       { type: 'img', src: 'myprojects/sistemintegrasi/images/dashboard2_sikeu.png' },
@@ -231,19 +236,21 @@ const projects = {
     links: [
       { label: 'GitHub', icon: 'fab fa-github', url: 'https://github.com/nabilahlw/documentation-automation-whatsapp-web.js.git' },
       { label: 'Demo Video', icon: 'fas fa-play-circle', url: 'https://drive.google.com/file/d/1mJBEVsjqIqzRrnYgQi2r6_dWnk7NWzKJ/view?usp=drive_link' },
+      { label: 'Makalah', icon: 'fas fa-file-alt', url: 'https://garuda.kemdiktisaintek.go.id/documents/detail/6688499' },
     ],
     media: [
       { type: 'img', src: 'myprojects/whatsapp-bot/bot1.png' },
       { type: 'img', src: 'myprojects/whatsapp-bot/bot2.png' },
       { type: 'img', src: 'myprojects/whatsapp-bot/bot3.png' },
       { type: 'img', src: 'myprojects/whatsapp-bot/bot4.png' },
+      { type: 'pdf', src: 'myprojects/whatsapp-bot/nabilahulwana-senatib.pdf', label: 'Download Sertifikat PDF' },
     ]
   },
 p11: {
   title: 'Integrated Clinic Information System',
 cat: 'Enterprise Information System',
 catFilter: 'app',
-desc: `<b>Project Objective:</b> Developed a web-based integrated clinic management system to digitalize and streamline clinic operations, including patient registration, medical examinations, billing, online payments, and business analytics within a single platform.\n\n<b>Key Features:</b>\n• <b>Role-Based Access Control:</b> Multi-role authentication and authorization for Administrator, Registration Staff, Doctor, Cashier, and Head of Clinic.\n• <b>Patient & Medical Record Management:</b> Complete CRUD modules for patients, doctors, employees, clinic departments (Poli), medical services, medicines, doctor schedules, examinations, diagnoses, prescriptions, and visit history.\n• <b>Integrated Billing & Online Payment:</b> Automatic invoice generation based on examination results with manual payment support and Midtrans Sandbox integration using Snap API, webhook callbacks, and SHA-512 signature verification.\n• <b>Analytics Dashboard & Reporting:</b> Interactive dashboard displaying clinic KPIs, revenue trends, visit statistics, Top 5 services, departments, diagnoses, complaints, and shift distributions with PDF & Excel export.\n• <b>Corporate Application Integration:</b> End-to-end integration between registration, medical examination, billing, payment gateway, and reporting modules to ensure consistent real-time clinic data across the system.`,
+desc: `<b>Tujuan Proyek:</b> Tugas Kelompok, Mengembangkan sistem manajemen klinik terintegrasi berbasis web untuk mendigitalisasi dan menyederhanakan operasional klinik, mulai dari pendaftaran pasien, pemeriksaan medis, penagihan, pembayaran online, hingga analitik bisnis dalam satu platform.\n\n<b>Fitur Utama:</b>\n• <b>Role-Based Access Control:</b> Autentikasi dan otorisasi multi-peran untuk Administrator, Staf Pendaftaran, Dokter, Kasir, dan Kepala Klinik.\n• <b>Manajemen Pasien & Rekam Medis:</b> Modul CRUD lengkap untuk pasien, dokter, karyawan, poliklinik (Poli), layanan medis, obat, jadwal dokter, pemeriksaan, diagnosis, resep, dan riwayat kunjungan.\n• <b>Penagihan Terintegrasi & Pembayaran Online:</b> Pembuatan invoice otomatis berdasarkan hasil pemeriksaan, dengan dukungan pembayaran manual dan integrasi Midtrans Sandbox menggunakan Snap API, webhook callback, dan verifikasi signature SHA-512.\n• <b>Dashboard Analitik & Pelaporan:</b> Dashboard interaktif yang menampilkan KPI klinik, tren pendapatan, statistik kunjungan, Top 5 layanan, poli, diagnosis, keluhan, dan distribusi shift, dengan ekspor ke PDF & Excel.\n• <b>Integrasi Aplikasi Korporat:</b> Integrasi menyeluruh antara modul pendaftaran, pemeriksaan medis, penagihan, payment gateway, dan pelaporan agar data klinik konsisten secara real-time di seluruh sistem.`,
 tech: [
 'Laravel 12',
 'PHP',
@@ -266,7 +273,7 @@ tech: [
     },
   ],
   media: [
-    { type: 'img', src: 'myprojects/clinic-integrated-system/clinic1.png' },
+    { type: 'img', src: 'myprojects/clinic-integrated-system/clicic1.png' },
     { type: 'img', src: 'myprojects/clinic-integrated-system/clinic2.png' },
     { type: 'img', src: 'myprojects/clinic-integrated-system/clinic3.png' },
     { type: 'img', src: 'myprojects/clinic-integrated-system/clinic4.png' },
@@ -461,10 +468,10 @@ const CERTS = [
     isImg: true,
     dl: 'https://drive.google.com/file/d/1FitDy0euaLKGKZa-jCuEpqRA9xQW-EkA/view?usp=sharing' },
 
-  { title: 'Belajar Dasar Cloud dan Gen AI di AWS — Dicoding',
-    file: 'certificates/Certificate - Belajar Dasar Cloud & Gen AI di AWS - Dicoding.pdf',
+  { title: 'Pemakalah Artikel Implementasi Artificial Intelligence pada Sistem Otomatisasi Dokumentasi Foto dan Video WhatsApp ke Google Drive Berbasis Cloud Computing — Universitas Duta Bangsa',
+    file: 'certificates/Certificate - Pemakalah Senatib UDB 2026.pdf',
     isImg: false,
-    dl: 'https://drive.google.com/file/d/1RabPLcsYWLCgAHPpBlMymfgVbhZTwc5b/view?usp=sharing' },
+    dl: 'https://drive.google.com/file/d/1RB4wMEemnxj60suHRJrCsihXq7joeQX6/view?usp=sharing' },
 
   { title: 'Classifying & Summarizing Data Using IBM Granite — IBM SkillsBuild',
     file: 'certificates/Certificate - Classifying Data Using IBM Granite - IBM SkillsBuild.pdf',

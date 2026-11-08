@@ -96,8 +96,11 @@ img { max-width:100%; }
   transition: background var(--trans), color var(--trans);
   white-space: nowrap;
 }
+/* Saat navbar sudah putih (setelah scroll): tulisan menu pakai merah berry agar terbaca */
+#navbar.scrolled .nav-pill a { color: var(--berry); }
 .nav-pill a:hover { background: var(--pink-light); color: var(--berry); }
-.nav-pill a.active { background: var(--pink); color: var(--white); }
+.nav-pill a.active,
+#navbar.scrolled .nav-pill a.active { background: var(--pink); color: var(--white); }
 
 /* ═══════════════════════════════
    HERO
@@ -311,6 +314,20 @@ section { min-height: 100vh; padding: 5rem 4%; }
 .exp-period { font-size:.78rem; color:var(--muted); margin-bottom:.8rem; }
 .exp-list { padding-left:1.1rem; font-size:.83rem; color:var(--text); line-height:1.65; }
 .exp-list li { margin-bottom:.45rem; }
+
+/* ── Kartu lebar (Techno Functional): 1 baris penuh, screenshot kiri, teks kanan ── */
+.exp-card.exp-wide {
+  grid-column: 1 / -1;
+  margin-top: 2rem; /* tambahan jarak dari 3 kotak di atasnya */
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr; /* gambar lebih kecil, teks lebih lebar */
+}
+/* Tinggi kartu ditentukan teks; slider mengikuti, gambar muat di dalamnya (tidak memanjang) */
+.exp-wide .exp-slider { height: auto; min-height: 320px; background: var(--beige); }
+.exp-wide .exp-slides { position: absolute; inset: 0; }
+.exp-wide .exp-slides img { object-fit: contain; background: var(--beige); }
+.exp-wide .exp-body { padding: 1.5rem 2rem; align-self: center; }
+.exp-wide .exp-list ul.exp-list { margin-top: .4rem; }
 
 
 /* PROJECTS */
@@ -561,6 +578,9 @@ footer {
   .profile-layout { grid-template-columns:1fr; }
   .profile-right { grid-template-columns:1fr; }
   .exp-grid { grid-template-columns:1fr 1fr; }
+  .exp-card.exp-wide { grid-template-columns:1fr; }
+  .exp-wide .exp-slider { min-height:260px; height:260px; }
+  .exp-wide .exp-slides { position:absolute; inset:0; }
   .cert-grid { grid-template-columns:1fr 1fr; }
   .proj-pages { grid-template-columns:1fr 1fr; }
   .proj-modal { grid-template-columns:1fr; max-height:90vh; overflow-y:auto; }
@@ -604,7 +624,7 @@ footer {
     <!-- Kiri: Foto & Sosmed -->
     <div class="profile-left">
       <div class="profile-photo-wrap">
-        <img src="aku1.png" onerror="this.src='https://placehold.co/300x400/EADEBF/788E77?text=Nabila'" alt="Nabila Hulwana">
+        <img src="aku2.png" onerror="this.src='https://placehold.co/300x400/EADEBF/788E77?text=Nabila'" alt="Nabila Hulwana">
       </div>
       <div class="profile-socials">
         <a href="https://wa.me/6285746707251" target="_blank"><i class="fab fa-whatsapp"></i></a>
@@ -619,9 +639,9 @@ footer {
       <div class="profile-box">
         <h3>Nabila Hulwana Zuhud</h3>
         <div class="job-title">Undergraduate Student of Information Systems</div>
-        <p>Mahasiswi S1 Sistem Informasi, semester 6, kelas karyawan di Universitas Duta Bangsa Surakarta dengan fokus pada Data Analytics, Data Engineering, dan pengembangan web.</p>
-        <p>Saya berpengalaman lebih dari 3 tahun di bidang pendidikan sebagai Asisten Guru Kelas di TK Islam Al-Madinah Kartasura, tutoring pelajaran SMP dan sekarang aktif sebagai Coding Tutor di KodeKiddo Surakarta (part time) mengajar coding dan logika berpikir untuk siswa SD–SMP melalui proyek kreatif seperti game, storytelling menggunakan Scratch, Tinkercad, dan Arduino.</p>
-        <p>Di bidang data, saya terampil menggunakan SQL, Python, PySpark, Apache Kafka, PostgreSQL, dan tools ETL untuk membangun pipeline data end-to-end, serta membuat dashboard interaktif dengan Tableau, Power BI, Excel, dan Streamlit. Untuk pengembangan aplikasi dan web saya berpengalaman dengan Flutter, Firebase, Laravel, PHP, JavaScript, Golang dan GitHub disertai dengan adaptabilitas dan kerja tim yang baik</p>
+        <p>Mahasiswi S1 Sistem Informasi di Universitas Duta Bangsa Surakarta, dengan fokus pada Data Analytics, Data Engineering, dan pengembangan web. Berpengalaman sebagai Techno Functional di PT. Logika Sistem Bisnis, yaitu memberikan dukungan fungsional Epicor Kinetic ERP dan berkontribusi pada pengembangan aplikasi web internal untuk perusahaan manufaktur.</p>
+        <p>Di bidang ERP, saya menangani analisis akar masalah transaksi pada modul Manufacturing, Purchasing, Inventory, dan Shipping. Saya juga menyusun prosedur koreksi untuk user non-teknis, melakukan pengujian fitur sebelum rilis, dan memberikan pelatihan kepada user. Pada pengembangan web, saya berkontribusi menggunakan Next.js, TypeScript, Tailwind CSS, dan Epicor REST API v2.</p>
+        <p>Di bidang data, saya berpengalaman menggunakan SQL, Python, PySpark, Apache Kafka, PostgreSQL, dan tools ETL untuk membangun pipeline data end-to-end, serta membuat dashboard interaktif dengan Tableau, Power BI, Excel, dan Streamlit, yang saya pelajari dari pelatihan online maupun projek dari kampus. Untuk pengembangan aplikasi dan web, saya berpengalaman dengan Flutter, Firebase, Laravel, PHP, JavaScript, dan Golang. Di luar itu, saya memiliki latar belakang di bidang pendidikan sebagai Asisten Guru Kelas, tutor SMP, dan Coding Tutor di KodeKiddo Surakarta (part time), yang melatih komunikasi dan kerja sama tim.</p>
       </div>
       <div class="edu-box">
         <h3>Education</h3>
@@ -689,7 +709,7 @@ footer {
         <button class="slider-btn right" onclick="slideExp('exp2',1)">❯</button>
       </div>
       <div class="exp-body">
-        <span class="exp-tag">Tech Education</span>
+        <span class="exp-tag">Education</span>
         <h3>Coding Tutor</h3>
         <div class="exp-company">KodeKiddo Surakarta</div>
         <div class="exp-period">Part-time | Des 2025 – sekarang</div>
@@ -713,7 +733,7 @@ footer {
         <button class="slider-btn right" onclick="slideExp('exp3',1)">❯</button>
       </div>
       <div class="exp-body">
-        <span class="exp-tag">Tutoring</span>
+        <span class="exp-tag">Education</span>
         <h3>Tentor Akademik</h3>
         <div class="exp-company">Seventh Education Surakarta</div>
         <div class="exp-period">Part-time | Jan 2026 – Mar 2026</div>
@@ -722,6 +742,40 @@ footer {
           <li>Mengajarkan mata pelajaran Bahasa Indonesia dan Bahasa Inggris.</li>
           <li>Membantu siswa mempersiapkan diri menghadapi ujian TKA.</li>
           <li>Membimbing pemahaman materi, grammar, dan strategi pengerjaan soal.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EXP 4 (KARTU LEBAR: Techno Functional) -->
+    <div class="exp-card exp-wide">
+      <div class="exp-slider" id="sl-exp4">
+        <div class="exp-slides">
+          <img src="experiences/lsb/lsb1.png" onerror="this.src='https://placehold.co/700x420/F5EFEB/824D5C?text=Screenshot+1'" alt="Techno Functional 1">
+          <img src="experiences/lsb/lsb2.png" onerror="this.src='https://placehold.co/700x420/F5EFEB/824D5C?text=Screenshot+2'" alt="Techno Functional 2">
+          <img src="experiences/lsb/lsb3.png" onerror="this.src='https://placehold.co/700x420/F5EFEB/824D5C?text=Screenshot+3'" alt="Techno Functional 3">
+          <img src="experiences/lsb/lsb4.png" onerror="this.src='https://placehold.co/700x420/F5EFEB/824D5C?text=Screenshot+4'" alt="Techno Functional 4">
+          <img src="experiences/lsb/lsb5.png" onerror="this.src='https://placehold.co/700x420/F5EFEB/824D5C?text=Screenshot+5'" alt="Techno Functional 5">
+          <img src="experiences/lsb/lsb6.png" onerror="this.src='https://placehold.co/700x420/F5EFEB/824D5C?text=Screenshot+6'" alt="Techno Functional 6">
+        </div>
+        <button class="slider-btn left" onclick="slideExp('exp4',-1)">❮</button>
+        <button class="slider-btn right" onclick="slideExp('exp4',1)">❯</button>
+      </div>
+      <div class="exp-body">
+        <span class="exp-tag">ERP & Web Development</span>
+        <h3>Techno Functional</h3>
+        <div class="exp-company">PT. Logika Sistem Bisnis</div>
+        <div class="exp-period">Full-time · Remote | Agu 2026 – Nov 2026</div>
+        <ul class="exp-list">
+          <li>Memberikan dukungan fungsional <b>Epicor Kinetic ERP</b> (Manufacturing, Subcontract, Purchasing, Management, Shipping, Inventory) kepada user finance, purchasing, gudang, pengiriman, dan produksi.</li>
+          <li>Menganalisis akar masalah transaksi melalui menu tracker, sistem, laporan, dan data BAQ, lalu menyusun prosedur koreksi yang aman kepada user non-teknis melalui chat maupun telepon.</li>
+          <li>Berkontribusi pada pengembangan <b>Spex</b>, web app internal untuk klien perusahaan manufaktur menggunakan Next.js, TypeScript, dan Tailwind CSS, terintegrasi dengan Epicor REST API v2 dan BAQ:
+            <ul class="exp-list">
+              <li>Membuat menu laporan operasional dengan ekspor PDF.</li>
+              <li>Mengembangkan beberapa fitur kustom di modul Job sesuai kondisi dan aturan dari Epicor ERP.</li>
+            </ul>
+          </li>
+          <li>Melakukan pengujian (testing) setiap menu yang akan dirilis ke Spex versi deploy, bekerja sama dengan programmer.</li>
+          <li>Melakukan pelatihan (training) kepada user untuk menu-menu baru yang dirilis, termasuk penjelasan transaksi yang terbentuk, melalui Google Meet.</li>
         </ul>
       </div>
     </div>
@@ -793,17 +847,17 @@ footer {
       </div>
     </div>
  
-    <div class="cert-card" onclick="openCert('Belajar Dasar Cloud dan Gen AI di AWS', 'https://drive.google.com/file/d/1FitDy0euaLKGKZa-jCuEpqRA9xQW-EkA/preview', 'https://drive.google.com/uc?export=download&amp;id=1FitDy0euaLKGKZa-jCuEpqRA9xQW-EkA')">
-      <div class="cert-thumb">
-        <img src="certificates/sertif2.png" alt="Cloud AWS" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="cert-thumb-placeholder" style="display:none"><i class="fas fa-certificate"></i></div>
-      </div>
-      <div class="cert-body">
-        <h4>Belajar Dasar Cloud dan Gen AI di AWS</h4>
-        <div class="cert-meta">Dicoding Indonesia · 18 Oktober 2025 · 4EXG3VNDQZRL</div>
-        <button class="cert-view-btn">View Certificate</button>
-      </div>
-    </div>
+    <div class="cert-card" onclick="openCert('Pemakalah SENATIB 2026: Implementasi Artificial Intelligence pada Sistem Otomatisasi Dokumentasi Foto dan Video WhatsApp ke Google Drive Berbasis Cloud Computing', 'https://drive.google.com/file/d/1RB4wMEemnxj60suHRJrCsihXq7joeQX6/preview', 'https://drive.google.com/uc?export=download&amp;id=1RB4wMEemnxj60suHRJrCsihXq7joeQX6')">
+  <div class="cert-thumb">
+    <img src="certificates/sertif17.png" alt="Pemakalah SENATIB 2026" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="cert-thumb-placeholder" style="display:none"><i class="fas fa-certificate"></i></div>
+  </div>
+  <div class="cert-body">
+    <h4>Pemakalah Seminar Nasional SENATIB 2026</h4>
+    <div class="cert-meta">Universitas Duta Bangsa · 25 Juli 2026 · 934/UDB.D1/A.37-KM/VII/2026</div>
+    <button class="cert-view-btn">View Certificate</button>
+  </div>
+</div>
 <div class="cert-card" onclick="openCert('Introduction to Data Engineering', 'https://drive.google.com/file/d/1VnTyRk_yrVM0mzvcm0N0MRAUAQgoErei/preview', 'https://drive.google.com/uc?export=download&id=1VnTyRk_yrVM0mzvcm0N0MRAUAQgoErei')">
   <div class="cert-thumb">
     <img src="certificates/sertif3.png" alt="Intro Data Engineering" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
